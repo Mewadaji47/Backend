@@ -36,13 +36,19 @@ app.use(cors({
 
 
 app.use((req, res, next) => {
-  // If you're behind a reverse proxy like nginx or Heroku,
-  // you may want to use req.headers['x-forwarded-for'] instead
-  req.ip = req.connection.remoteAddress;
-  console.log('ip ' , req.ip)
+
+  const forwardedFor = req.headers['x-forwarded-for'];
+  if (forwardedFor) {
+  
+    req.ip = forwardedFor.split(',')[0];
+    console.log("ip" , req.ip)
+  } else {
+    // If no proxy, use the remote address
+    req.ip = req.connection.remoteAddress;
+    console.log("ip" , req.ip)
+  }
   next();
 });
-
 
 
 
