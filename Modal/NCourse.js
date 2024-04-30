@@ -11,6 +11,7 @@ const Branch = mongoose.model('Branches', branchSchema);
 // Institute Schema
 const instituteSchema = new mongoose.Schema({
   name: { type: String },
+  
   code: { type: String  },
 });
 

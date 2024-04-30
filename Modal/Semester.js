@@ -55,7 +55,8 @@ const SemesterSchemeSchema = new mongoose.Schema({
     },
    
     subjects: [SemesterSubjectSchema],
-}, { timestamps: true });
+},
+ { timestamps: true });
 
 const SemesterScheme = mongoose.model('SemesterScheme', SemesterSchemeSchema);
 

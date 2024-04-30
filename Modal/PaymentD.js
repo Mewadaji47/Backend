@@ -18,7 +18,10 @@ const PaymentSchema = new mongoose.Schema({
     email:String,
     mobile:String,
     fathersname:String,
-    mothersname:String
+    mothersname:String,
+    courseName:String,
+    courseType:String,
+    courseBranch:String
   });
   
  

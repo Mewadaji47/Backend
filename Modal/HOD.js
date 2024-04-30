@@ -36,7 +36,8 @@ const HodSchema = new mongoose.Schema({
   
 
     
-},{timestamps:true});
+},
+{timestamps:true});
 
 
 const HOD = mongoose.model('Hods',HodSchema)

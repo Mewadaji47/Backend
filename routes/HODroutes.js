@@ -37,7 +37,7 @@ router.post('/apitest/hod/login', async (req, res) => {
       res.cookie("access-token", token, {
         httpOnly: true,
         sameSite: "None"
-      }).status(200).json({ UserResponse });
+      }).status(200).json({ UserResponse , token });
     }
   } catch (error) {
     console.log(error)
@@ -273,6 +273,12 @@ router.get('/api/search2', verifyHod, async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
+
+
+
+
+
 
 router.get('/apitest/hod/students/branchtotallist', async (req, res) => {
   const { branch } = req.query;
