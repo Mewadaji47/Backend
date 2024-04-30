@@ -39,13 +39,16 @@ app.use((req, res, next) => {
 
   const forwardedFor = req.headers['x-forwarded-for'];
   if (forwardedFor) {
-  
+    const userIp = req.ip
     req.ip = forwardedFor.split(',')[0];
     console.log("ip" , req.ip)
+    console.log("userip" , userIp)
   } else {
     // If no proxy, use the remote address
+    const userIp = req.ip
     req.ip = req.connection.remoteAddress;
     console.log("ip" , req.ip)
+    console.log("userip" , userIp)
   }
   next();
 });
